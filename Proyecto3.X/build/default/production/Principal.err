@@ -1,0 +1,16 @@
+Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 21 : Found label after column 1. (GPR_VAR)
+Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 22 : Found label after column 1. (STATUS_TEMP)
+Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 23 : Found label after column 1. (W_TEMP)
+Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 27 : Found label after column 1. (RES_VECT)
+Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 87 : Found label after column 1. (LOOP)
+Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 96 : Found label after column 1. (CONFIG_IO)
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 104 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 105 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 106 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 107 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 110 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 113 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 114 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 121 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 122 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 134 : Register in operand not in bank 0.  Ensure that bank bits are correct.
