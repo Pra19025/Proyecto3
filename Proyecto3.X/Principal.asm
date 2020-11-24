@@ -21,40 +21,89 @@
     GPR_VAR	    UDATA
     STATUS_TEMP	RES 1
     W_TEMP	RES 1
-    
-    
-    
+    CONT1		RES 1
+    POT3		RES 1
+    CONTROL_CANAL RES 1
+		
     RES_VECT  CODE    0x0000            ; processor reset vector
     GOTO    START                   ; go to beginning of program
 
 
 ISR_VECT    CODE 0X0004
  
-    
 PUSH:
     MOVWF	    W_TEMP
     SWAPF	   STATUS, W
     MOVWF	   STATUS_TEMP 
+
+    BTFSC	PIR1, ADIF
+    GOTO	INT_ADC
+    BTFSC	INTCON, T0IF
+    GOTO	INT_TMR0
+    BTFSC	PIR1, TMR2IF
+    GOTO	INT_TMR2
+    GOTO	POP    
+   
+    
+INT_TMR0:
+    BCF	INTCON, T0IF
+    MOVLW   .237
+    MOVWF   TMR0
+    INCF	CONT1, F
+    MOVFW   CONT1
+    SUBWF   POT3, W
+    BTFSS   STATUS, C
+    COMF    PORTC, RC0
+    
+    GOTO POP
         
 INT_ADC:
     BCF	PIR1, ADIF
+    
+    MOVLW .0
+    SUBWF   CONTROL_CANAL, W
+    BTFSC   STATUS, Z
+    GOTO    CANAL0
+    
+    MOVLW   .1
+    SUBWF   CONTROL_CANAL, W
+    BTFSC   STATUS, Z
+    GOTO    CAMBIO_CANAL1
+    
+    MOVLW   .2
+    SUBWF   CONTROL_CANAL, W
+    BTFSC   STATUS, Z
+    GOTO    CAMBIO_CANAL2
+    
+    
+CANAL0:
     BANKSEL ADRESH	     
     MOVF ADRESH,W		;GUARDAR 8 BITS EN RESULTHI
-    BTFSC   ADCON0, 2
-    GOTO	 CAMBIO_CANAL
     MOVWF CCPR1L
-
     BANKSEL ADCON0
     BSF   ADCON0, 2
     GOTO REINICIOADC
     
-CAMBIO_CANAL:
-    ;SI YA CAMBIO EL CANAL EJECUTA ESTO
+CAMBIO_CANAL1:
+    BANKSEL ADRESH	     
+    MOVF ADRESH,W		;GUARDAR 8 BITS EN RESULTHI
     MOVWF   CCPR2L
     BANKSEL ADCON0  
     BCF   ADCON0, 2
+    BSF   ADCON0, 3
     GOTO    REINICIOADC
 
+    
+CAMBIO_CANAL2:
+    CLRF    CONTROL_CANAL
+    BANKSEL ADRESH	     
+    MOVF ADRESH,W		;GUARDAR 8 BITS EN RESULTHI
+    MOVWF   POT3
+    BANKSEL ADCON0
+    BCF	ADCON0, 2
+    BCF	ADCON0, 3
+    GOTO    REINICIOADC
+    
 INT_TMR2:
     BCF	PIR1, TMR2IF
     GOTO POP
@@ -84,14 +133,11 @@ START
 
     CALL    CONFIG_IO
     
-    LOOP:
- 
+LOOP:
     
     GOTO LOOP
     GOTO $                          ; loop forever
 
-    
-    
     
     CONFIG_IO
     
@@ -99,12 +145,14 @@ START
     CLRF    PORTC
     CLRF    PORTA
     CLRF    PORTB
-    
+    CLRF    CONTROL_CANAL
+    CLRF    POT3
     BANKSEL TRISA
     CLRF    TRISB
     CLRF    TRISC
     BSF	TRISA, 0
     BSF	TRISA, 1
+    BSF	TRISA, 2
     BANKSEL ADCON1
     MOVLW B'00000000'
     MOVWF   ADCON1
@@ -112,6 +160,7 @@ START
     BANKSEL ANSEL
     BSF	ANSEL, 0
     BSF	ANSEL, 1
+    BSF	ANSEL, 2
     BANKSEL ADCON0
     MOVLW   B'01000001'	
     MOVWF   ADCON0
@@ -125,8 +174,6 @@ START
     BSF	INTCON, PEIE
     BCF	PIR1, ADIF
     BCF	PIR1, TMR2IF
-   
-    
     
     ;PARA PWM
    
@@ -159,6 +206,19 @@ START
     BSF	T2CON, 0
     BSF	T2CON, TMR2ON
     
+    ;para timer 0, que se utiliza para el tercer servo
+
+    BANKSEL TRISA
+    BCF	    OPTION_REG, T0CS;	RELOJ INTERNO
+    BCF	    OPTION_REG, PSA;	PRESCALER A TMR0
+    BSF	    OPTION_REG, PS2;	SE PONE 111 PARA PRESCALER DE 256
+    BSF	    OPTION_REG, PS1
+    BSF	    OPTION_REG, PS0
+    BANKSEL PORTA
+    MOVLW   .237
+    MOVWF   TMR0
+    BSF	    INTCON, T0IE
+    BCF	    INTCON, T0IF
     RETURN
     
     
