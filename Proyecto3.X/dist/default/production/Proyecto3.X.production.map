@@ -1,5 +1,5 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Wed Nov 25 16:00:14 2020
+Linker Map File - Created Wed Nov 25 16:38:46 2020
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -7,7 +7,7 @@ Linker Map File - Created Wed Nov 25 16:00:14 2020
                  RES_VECT       code   0x000000    program   0x000002
                    .cinit    romdata   0x000001    program   0x000004
                  ISR_VECT       code   0x000004    program   0x000070
-                MAIN_PROG       code   0x00003c    program   0x0000ac
+                MAIN_PROG       code   0x00003c    program   0x0000ae
 .config_2007_BUILD/DEFAULT/PRODUCTION/PRINCIP       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/PRINCIP       code   0x002008    program   0x000002
                   GPR_VAR      udata   0x000020       data   0x00000d
@@ -18,9 +18,9 @@ Linker Map File - Created Wed Nov 25 16:00:14 2020
                                Start         End      
                            ---------   ---------      
                             0x000000    0x000002      
-                            0x000004    0x000091      
+                            0x000004    0x000092      
                             0x002007    0x002008      
-            147 out of 8455 program addresses used, program memory utilization is 1%
+            148 out of 8455 program addresses used, program memory utilization is 1%
 
 
 
@@ -41,6 +41,7 @@ Linker Map File - Created Wed Nov 25 16:00:14 2020
                      PWM1   0x000015    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
                     START   0x00003c    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
           _MAIN_PROG_0008   0x000044    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+          _MAIN_PROG_0056   0x000092    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
                      ADC0   0x000024       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
                      ADC1   0x000025       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
                      ADC2   0x000026       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
@@ -74,6 +75,7 @@ Linker Map File - Created Wed Nov 25 16:00:14 2020
                      LOOP   0x00003d    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
           _MAIN_PROG_0008   0x000044    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
                 CONFIG_IO   0x000045    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+          _MAIN_PROG_0056   0x000092    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
               STATUS_TEMP   0x000020       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
                    W_TEMP   0x000021       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
                     CONT1   0x000022       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm

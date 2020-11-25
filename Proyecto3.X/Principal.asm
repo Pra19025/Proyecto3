@@ -1,6 +1,4 @@
-; TODO INSERT CONFIG CODE HERE USING CONFIG BITS GENERATOR
 
-<<<<<<< HEAD
     #include "p16f887.inc"
 
 ; CONFIG1
@@ -109,18 +107,15 @@ POP:
     BSF	    INTCON, GIE
  
     RETFIE
-=======
-RES_VECT  CODE    0x0000            ; processor reset vector
-    GOTO    START                   ; go to beginning of program
 
 ; TODO ADD INTERRUPTS HERE IF USED
->>>>>>> parent of b71d931... Ya se controlan 2 servos
+
 
 MAIN_PROG CODE                      ; let linker place main program
 
 START
 
-<<<<<<< HEAD
+
     CALL    CONFIG_IO
 
      
@@ -230,8 +225,7 @@ LOOP:
     BSF	INTCON, GIE
     BSF	INTCON, PEIE
 
-=======
     GOTO $                          ; loop forever
 
->>>>>>> parent of b71d931... Ya se controlan 2 servos
+
     END
