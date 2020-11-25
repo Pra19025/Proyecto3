@@ -1,11 +1,11 @@
  ;*******************************************************************************
 ;
-;   Filename:	    Laboratorio8 -> lab8.asm
-;   Date:		    8/10/2020
+;   Filename:	    Proyecto3 -> principal.asm
+;   Date:		    25/11/2020
 ;   File Version:	    v.1
 ;   Author:		    Noel Prado
 ;   Company:	    UVG
-;   Description:	    Manejo del módulo PWM
+;   Description:	    proyecto 3
 ;
 ;*******************************************************************************  
 
@@ -21,7 +21,8 @@
     GPR_VAR	    UDATA
     STATUS_TEMP	RES 1
     W_TEMP	RES 1
-
+    CONTROL_ADC	RES 1
+	
 	    
 RES_VECT  CODE    0x0000            ; processor reset vector
     GOTO    START                   ; go to beginning of program
@@ -35,24 +36,55 @@ PUSH:
     MOVWF	   STATUS_TEMP 
         
 INT_ADC:
+    
     BCF	PIR1, ADIF
     BANKSEL ADRESH	     
     MOVF ADRESH,W		;GUARDAR 8 BITS EN RESULTHI
-    BTFSC   ADCON0, 2
-    GOTO	 CAMBIO_CANAL
-    MOVWF CCPR1L
-
-    BANKSEL ADCON0
-    BSF   ADCON0, 2
-    GOTO REINICIOADC
     
-CAMBIO_CANAL:
-    ;SI YA CAMBIO EL CANAL EJECUTA ESTO
-    MOVWF   CCPR2L
-    BANKSEL ADCON0  
-    BCF   ADCON0, 2
+    
+    MOVLW .0
+    SUBWF   CONTROL_ADC, W
+    BTFSC   STATUS, Z
+    GOTO    CANAL0
+    
+    MOVLW .1
+    SUBWF   CONTROL_ADC, W
+    BTFSC   STATUS, Z
+    GOTO    CANAL1
+    
+    MOVLW .2
+    SUBWF   CONTROL_ADC, W
+    BTFSC   STATUS, Z
+    GOTO    CANAL2
+    
+    
+    CANAL0:
+    
+    
+    MOVWF CCPR1L
+    BCF	ADCON0, CHS1
+    BSF	ADCON0, CHS0 ;SE SELECCIONA CANAL 1
+    
+    INCF    CONTROL_ADC
+    
     GOTO    REINICIOADC
-
+    
+    CANAL1:
+    BSF	ADCON0, CHS1
+    BCF	ADCON0, CHS0;SE SELECCIONA CANAL 2
+    
+    MOVWF   CCPR2L
+    INCF    CONTROL_ADC
+    
+    GOTO    REINICIOADC
+    
+    CANAL2:
+    BCF	ADCON0, CHS1
+    BCF	ADCON0, CHS0;SE SELECCIONA CANAL 0
+    
+    CLRF    CONTROL_ADC
+    GOTO    REINICIOADC
+    
 INT_TMR2:
     BCF	PIR1, TMR2IF
     GOTO POP
