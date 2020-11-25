@@ -34,19 +34,17 @@ PUSH:
     SWAPF	   STATUS, W
     MOVWF	   STATUS_TEMP 
 
-INT_TMR0:
     BTFSS   INTCON,T0IF
     GOTO    INT_ADC
     
     BCF	INTCON,T0IF
     MOVF    CONTROL_PWM,W
     ADDWF   PCL, F
-    GOTO    INICIO_PERIODO ;este contador LLEVA EN CONTROL DE LA SECUENCIA PARA LA GENERACION PWM
+    GOTO    INICIO
     GOTO    PWM1
     CLRF     CONTROL_PWM
     
-INICIO_PERIODO: ;EN LA PRIMERA FASE SE COLOCA EN 1 EL PIN RC0 Y RC3 SE ENCUENTRA EN 0
-    
+    INICIO:
     BSF	PORTC, RC0 
     MOVF    TRABAJO1,W 
     CLRF	TMR0
@@ -61,7 +59,7 @@ PWM1:
     SUBWF   TMR0,F ;256 - TRABAJO2
     INCF  CONTROL_PWM,F
     GOTO INT_ADC
-   
+;***********************************************************LECTURA DE LOS 3 CANALES DEL ADC *******************************   
 INT_ADC:
     BTFSS   PIR1, ADIF 
     GOTO    POP
@@ -108,7 +106,6 @@ POP:
  
     RETFIE
 
-; TODO ADD INTERRUPTS HERE IF USED
 
 
 MAIN_PROG CODE                      ; let linker place main program
@@ -173,10 +170,10 @@ LOOP:
     ;PARTE DE LA INTERRUPCION 
     BANKSEL TRISA
     BSF	PIE1, ADIE
-    ;BSF	PIE1, TMR2IE
+    BSF	PIE1, TMR2IE
     BANKSEL PORTA
    BCF	PIR1, ADIF
-   ; BCF	PIR1, TMR2IF
+   BCF	PIR1, TMR2IF
     
     ;PARA PWM
    
