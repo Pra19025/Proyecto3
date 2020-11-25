@@ -1,39 +1,14 @@
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 11 : Found label after column 1. (GPR_VAR)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 12 : Found label after column 1. (STATUS_TEMP)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 13 : Found label after column 1. (W_TEMP)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 14 : Found label after column 1. (CONT1)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 15 : Found label after column 1. (CONTROL_PWM)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 16 : Found label after column 1. (ADC0)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 17 : Found label after column 1. (ADC1)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 18 : Found label after column 1. (ADC2)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 19 : Found label after column 1. (CONTADOR_ADC)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 20 : Found label after column 1. (FLAGS)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 21 : Found label after column 1. (CONTADOR_PWM)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 22 : Found label after column 1. (AJUSTE_PWM)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 23 : Found label after column 1. (TRABAJO1)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 24 : Found label after column 1. (TRABAJO2)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 26 : Found label after column 1. (RES_VECT)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 47 : Found label after column 1. (INICIO)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 75 : Found label after column 1. (ES_ADC0)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 82 : Found label after column 1. (ES_ADC1)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 89 : Found label after column 1. (ES_ADC2)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 95 : Found label after column 1. (FIN)
-Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 137 : Found label after column 1. (CONFIG_IO)
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 151 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 152 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 153 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 154 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 155 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 159 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 162 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 163 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 164 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 165 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 172 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 173 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 181 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 210 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 211 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 212 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 213 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 214 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 21 : Found label after column 1. (GPR_VAR)
+Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 22 : Found label after column 1. (STATUS_TEMP)
+Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 23 : Found label after column 1. (W_TEMP)
+Warning[207] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 100 : Found label after column 1. (CONFIG_IO)
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 109 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 110 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 111 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 112 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 115 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 118 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 119 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 126 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 127 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\NOELP\DOCUMENTS\GITHUB\PROYECTO3\PROYECTO3.X\PRINCIPAL.ASM 139 : Register in operand not in bank 0.  Ensure that bank bits are correct.
