@@ -1,7 +1,6 @@
- ;*******************************************************************************
-;
+
 ;   Filename:	    Proyecto3 -> principal.asm
-;   Date:		    25/11/2020
+;   Date:		    12/11/2020
 ;   File Version:	    v.1
 ;   Author:		    Noel Prado
 ;   Company:	    UVG
@@ -9,7 +8,7 @@
 ;
 ;*******************************************************************************  
 
-    #include "p16f887.inc"
+#include "p16f887.inc"
 
 ; CONFIG1
 ; __config 0xE0D5
@@ -17,188 +16,252 @@
 ; CONFIG2
 ; __config 0xFFFF
     __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
-    
-    GPR_VAR	    UDATA
-    STATUS_TEMP	RES 1
-    W_TEMP	RES 1
-    CONTROL_ADC	RES 1
-	
-	    
+ 
+ 
+ GPR_VAR UDATA
+ W_TEMP RES 1
+ STATUS_TEMP RES 1
+ CONTROL_ADC RES 1 
+ CONTROL_PWM RES 1 
+ CONVERSION RES 1
+ TIMING1 RES 1
+ TIMING2 RES 1  
+ CANAL0 RES 1
+ CANAL1 RES 1
+ CANAL2 RES 1 
+
+ 
 RES_VECT  CODE    0x0000            ; processor reset vector
     GOTO    START                   ; go to beginning of program
 
-ISR_VECT    CODE 0X0004
- 
+
+ISR_VECT    CODE 0x0004
     
 PUSH:
-    MOVWF	    W_TEMP
-    SWAPF	   STATUS, W
-    MOVWF	   STATUS_TEMP 
-        
+    MOVWF	    W_TEMP	;SE MUEVE W A UN W TEMPORAL
+    SWAPF	   STATUS, W	;SE CAMBIAN NIBBLES DE STATUS		
+    MOVWF	   STATUS_TEMP	;SE MUEVE A STATUS TEMPORAL
+    
+INT_TMR0:
+    BTFSS   INTCON,T0IF
+    GOTO    INT_ADC
+    
+    BCF	INTCON,T0IF
+    MOVLW   .0
+    SUBWF   CONTROL_PWM, W
+    BTFSC  STATUS, Z 
+    GOTO ONDA_INICIA
+    
+    MOVLW   .1
+    SUBWF   CONTROL_PWM, W
+    BTFSC  STATUS, Z 
+    GOTO CUADRADA1
+    
+    MOVLW   .2
+    SUBWF   CONTROL_PWM, W
+    BTFSC  STATUS, Z 
+    GOTO CUADRADA2
+    
+    
+ONDA_INICIA: 
+    BSF	PORTC, RC0 
+    MOVF    TIMING1,W 
+    CLRF	TMR0
+    SUBWF   TMR0,F  ; ES COMO RESTARLE A 256 (AUNQUE REALMENTE TMR0 VALE 0)
+    INCF    CONTROL_PWM,F 
+    GOTO INT_ADC
+    
+CUADRADA1:
+    BCF	PORTC,RC0 
+    MOVF   TIMING2,W
+    CLRF TMR0
+    SUBWF   TMR0,F 
+    INCF CONTROL_PWM,F
+    GOTO INT_ADC
+    
+CUADRADA2:
+    BCF	PORTC,RC0
+    CLRF	TMR0 
+    CLRF    CONTROL_PWM
+    
+    
 INT_ADC:
+    BTFSS   PIR1, ADIF 
+    GOTO    POP ;SI NO ESTA ACTIVA SE SALE
     
     BCF	PIR1, ADIF
-    BANKSEL ADRESH	     
-    MOVF ADRESH,W		;GUARDAR 8 BITS EN RESULTHI
-    
-    
-    MOVLW .0
+    MOVLW   .0
     SUBWF   CONTROL_ADC, W
-    BTFSC   STATUS, Z
-    GOTO    CANAL0
+    BTFSC  STATUS, Z 
+    GOTO RT_ADC0
     
-    MOVLW .1
+    MOVLW   .1
     SUBWF   CONTROL_ADC, W
-    BTFSC   STATUS, Z
-    GOTO    CANAL1
+    BTFSC  STATUS, Z 
+    GOTO RT_ADC1
     
-    MOVLW .2
+    MOVLW   .2
     SUBWF   CONTROL_ADC, W
-    BTFSC   STATUS, Z
-    GOTO    CANAL2
+    BTFSC  STATUS, Z 
+    GOTO RT_ADC2
     
     
-    CANAL0:
+RT_ADC0:
+    MOVF    ADRESH, W
+    MOVWF   CANAL0
+    BCF	ADCON0,CHS1
+    BSF	ADCON0,CHS0 ;SE SELECCIONA EL CANAL 1
+    INCF    CONTROL_ADC,F
     
+    GOTO REINICIO
     
-    MOVWF CCPR1L
-    BCF	ADCON0, CHS1
-    BSF	ADCON0, CHS0 ;SE SELECCIONA CANAL 1
+RT_ADC1:
+    MOVF    ADRESH, W
+    MOVWF   CANAL1
+    BSF	ADCON0,CHS1
+    BCF	ADCON0,CHS0 ;SE SELECCIONA EL CANAL 2
+    INCF    CONTROL_ADC,F
     
-    INCF    CONTROL_ADC
-    
-    GOTO    REINICIOADC
-    
-    CANAL1:
-    BSF	ADCON0, CHS1
-    BCF	ADCON0, CHS0;SE SELECCIONA CANAL 2
-    
-    MOVWF   CCPR2L
-    INCF    CONTROL_ADC
-    
-    GOTO    REINICIOADC
-    
-    CANAL2:
-    BCF	ADCON0, CHS1
-    BCF	ADCON0, CHS0;SE SELECCIONA CANAL 0
-    
+    GOTO REINICIO
+   
+RT_ADC2:
+    MOVF    ADRESH,W
+    MOVWF  CANAL2
+    BCF	ADCON0,CHS1
+    BCF	ADCON0,CHS0 ;SE SELECCIONA EL CANAL 0
     CLRF    CONTROL_ADC
-    GOTO    REINICIOADC
-    
-INT_TMR2:
-    BCF	PIR1, TMR2IF
-    GOTO POP
-    
-REINICIOADC:
-    NOP
-    NOP
-    NOP
-    NOP
-    NOP
-    BANKSEL ADCON0
-    BSF ADCON0, GO
+    GOTO REINICIO
     
     
-POP:
-    SWAPF	    STATUS_TEMP, W
+REINICIO:
+    BSF	ADCON0,GO ;INICIA CONVERSION
+    
+POP:	;SE CONSERVAN VALORES DE STATUS Y W
+    SWAPF	    STATUS_TEMP, W  
     MOVWF	    STATUS
     SWAPF	    W_TEMP, F
     SWAPF	    W_TEMP, W
     BSF	    INTCON, GIE
- 
     RETFIE
     
-    
-    
 
+    
 MAIN_PROG CODE                      ; let linker place main program
  
-
-START
+ START
  
     CALL	CONFIG_IO
-   
+    
 LOOP:
- 
+    MOVLW   CANAL0
+    MOVWF   FSR ;VALOR DEL ADC PARA EL VALO
+    CALL    TRANSFORMADA
+    MOVF    CONVERSION,W
+    MOVWF   CCPR1L
     
- 
-
+    MOVLW    CANAL1
+    MOVWF   FSR
+    CALL    TRANSFORMADA
+    MOVF    CONVERSION, W
+    MOVWF   CCPR2L
+    
+    MOVLW   CANAL2
+    MOVWF   FSR
+    CALL   TRANSFORMADA
+    MOVF    CONVERSION,W
+    MOVWF TIMING1
+    	
+    
     GOTO LOOP
-    GOTO $                          ; loop forever
-    
-    
-    
-    
-    CONFIG_IO
+    GOTO    $	; loop forever
 
     
-    BANKSEL PORTA
-    CLRF    PORTC
-    CLRF    PORTA
-    CLRF    PORTB
+TRANSFORMADA
+
+    BCF	STATUS, IRP
     
-    BANKSEL TRISA
-    CLRF    TRISB
-    CLRF    TRISC
-    BSF	TRISA, 0
-    BSF	TRISA, 1
-    BANKSEL ADCON1
-    MOVLW B'00000000'
-    MOVWF   ADCON1
-    
+    BCF	STATUS,C 
+    RRF	INDF, W	    ;SE DIVIDE DENTRO DE 2 Y SUMA 31 PARA QUE EL VALOR ESTE EN EL RANGO
+    ADDLW   .31 
+    MOVWF    CONVERSION
+    BSF	STATUS, IRP 
+    RETURN
+   
+   
+   CONFIG_IO
+   
+    BSF	STATUS, IRP ;BANCO 2 Y 3 EN EL DIRECCIONAMIENTO INDIRECTO
     BANKSEL ANSEL
-    BSF	ANSEL, 0
-    BSF	ANSEL, 1
-    BANKSEL ADCON0
-    MOVLW   B'01000001'	
-    MOVWF   ADCON0
     
-    ;PARTE DE LA INTERRUPCION 
-    BANKSEL TRISA
-    BSF	PIE1, ADIE
-    BSF	PIE1, TMR2IE
+    MOVLW B'00001111'
+    MOVWF ANSEL
+    CLRF    ANSELH 
+    
+    ;CONFIGURACION DEL TIMER0 
+    BCF	OPTION_REG, T0CS 
+    BCF	OPTION_REG, PSA 
+    BCF	OPTION_REG, PS2
+    BSF	OPTION_REG,PS1
+    BSF	OPTION_REG,PS0 ;
+    
+    BCF	STATUS,RP1 
+    MOVLW   .255
+    MOVWF   TRISA
+    CLRF	   TRISC
+    
+    MOVLW .255 
+    MOVWF  PR2 
+    CLRF    ADCON1 
+    
+    
     BANKSEL PORTA
-    BSF	INTCON, GIE
-    BSF	INTCON, PEIE
-    BCF	PIR1, ADIF
-    BCF	PIR1, TMR2IF
-   
-    
-    
-    ;PARA PWM
-   
-    MOVLW .255
-    MOVWF    PR2
+    BCF	INTCON, T0IF
+    CLRF	TMR0
+    BSF	INTCON, T0IE
     
     BANKSEL  CCP1CON
     BCF	CCP1CON, 7
     BCF	CCP1CON, 6
-
+    BCF	CCP1CON, 5
+    BCF	CCP1CON, 4
     BSF	CCP1CON, 3
     BSF	CCP1CON, 2
     BCF	CCP1CON, 1
     BCF	CCP1CON, 0
 
-        
-    BANKSEL  CCP1CON 
+    BCF	CCP2CON, 7
+    BCF	CCP2CON, 6
+    BCF	CCP2CON, 5
+    BCF	CCP2CON, 4
     BSF	CCP2CON, 3
     BSF	CCP2CON, 2
-    BCF	CCP2CON, 1  
+    BCF	CCP2CON, 1
     BCF	CCP2CON, 0
-   
+    
     BCF	T2CON, 6
     BCF	T2CON, 5
     BCF	T2CON, 4
     BCF	T2CON, 3    
-   
-   
     BSF	T2CON, 1
     BSF	T2CON, 0
     BSF	T2CON, TMR2ON
     
-
+    MOVLW   B'01000001' ;ADC CON FOSC/8, CANAL 0 Y ENCENDIDO
+    MOVWF   ADCON0
+    
+    CLRF    CANAL0
+    CLRF    CANAL1
+    CLRF    CANAL2
+    CLRF    CONTROL_ADC
+    CLRF    CONTROL_PWM
+    
+    BSF	INTCON,GIE 
+    BSF	INTCON, PEIE
+    BSF	PIE1, ADIE 
+    BSF	ADCON0, GO ;INICIA LA CONVERSION
    
-   
+    
+    
     RETURN
-
+    
     END

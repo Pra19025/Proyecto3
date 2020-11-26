@@ -1,16 +1,16 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Wed Nov 25 16:59:23 2020
+Linker Map File - Created Wed Nov 25 21:51:46 2020
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                  RES_VECT       code   0x000000    program   0x000002
                    .cinit    romdata   0x000001    program   0x000004
-                 ISR_VECT       code   0x000004    program   0x000062
-                MAIN_PROG       code   0x000035    program   0x000078
+                 ISR_VECT       code   0x000004    program   0x000092
+                MAIN_PROG       code   0x00004d    program   0x0000aa
 .config_2007_BUILD/DEFAULT/PRODUCTION/PRINCIP       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/PRINCIP       code   0x002008    program   0x000002
-                  GPR_VAR      udata   0x000020       data   0x000003
+                  GPR_VAR      udata   0x000020       data   0x00000a
 
 
 
@@ -18,30 +18,41 @@ Linker Map File - Created Wed Nov 25 16:59:23 2020
                                Start         End      
                            ---------   ---------      
                             0x000000    0x000002      
-                            0x000004    0x000070      
+                            0x000004    0x0000a1      
                             0x002007    0x002008      
-            114 out of 8455 program addresses used, program memory utilization is 1%
+            163 out of 8455 program addresses used, program memory utilization is 1%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   CANAL0   0x000017    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                   CANAL1   0x00001c    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                   CANAL2   0x000021    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                CONFIG_IO   0x000038    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                  INT_ADC   0x000007    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                 INT_TMR2   0x000025    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                     LOOP   0x000036    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                      POP   0x00002f    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                CONFIG_IO   0x000066    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                CUADRADA1   0x00001c    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                CUADRADA2   0x000022    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  INT_ADC   0x000025    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                 INT_TMR0   0x000007    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                     LOOP   0x00004e    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+              ONDA_INICIA   0x000016    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                      POP   0x000047    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
                      PUSH   0x000004    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-              REINICIOADC   0x000027    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                    START   0x000035    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-          _MAIN_PROG_0002   0x000037    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                 REINICIO   0x000046    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  RT_ADC0   0x000034    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  RT_ADC1   0x00003a    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  RT_ADC2   0x000040    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                    START   0x00004d    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+             TRANSFORMADA   0x00005f    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+          _MAIN_PROG_0011   0x00005e    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                   CANAL0   0x000027       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                   CANAL1   0x000028       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                   CANAL2   0x000029       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
               CONTROL_ADC   0x000022       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-              STATUS_TEMP   0x000020       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                   W_TEMP   0x000021       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+              CONTROL_PWM   0x000023       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+               CONVERSION   0x000024       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+              STATUS_TEMP   0x000021       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  TIMING1   0x000025       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  TIMING2   0x000026       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                   W_TEMP   0x000020       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
 
 
 
@@ -49,19 +60,30 @@ Linker Map File - Created Wed Nov 25 16:59:23 2020
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
                      PUSH   0x000004    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                  INT_ADC   0x000007    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                   CANAL0   0x000017    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                   CANAL1   0x00001c    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                   CANAL2   0x000021    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                 INT_TMR2   0x000025    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-              REINICIOADC   0x000027    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                      POP   0x00002f    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                    START   0x000035    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                     LOOP   0x000036    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-          _MAIN_PROG_0002   0x000037    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                CONFIG_IO   0x000038    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-              STATUS_TEMP   0x000020       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
-                   W_TEMP   0x000021       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                 INT_TMR0   0x000007    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+              ONDA_INICIA   0x000016    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                CUADRADA1   0x00001c    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                CUADRADA2   0x000022    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  INT_ADC   0x000025    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  RT_ADC0   0x000034    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  RT_ADC1   0x00003a    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  RT_ADC2   0x000040    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                 REINICIO   0x000046    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                      POP   0x000047    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                    START   0x00004d    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                     LOOP   0x00004e    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+          _MAIN_PROG_0011   0x00005e    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+             TRANSFORMADA   0x00005f    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                CONFIG_IO   0x000066    program     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                   W_TEMP   0x000020       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+              STATUS_TEMP   0x000021       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
               CONTROL_ADC   0x000022       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+              CONTROL_PWM   0x000023       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+               CONVERSION   0x000024       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  TIMING1   0x000025       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                  TIMING2   0x000026       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                   CANAL0   0x000027       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                   CANAL1   0x000028       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
+                   CANAL2   0x000029       data     static C:\Users\noelp\Documents\GitHub\Proyecto3\Proyecto3.X\Principal.asm
 
 
