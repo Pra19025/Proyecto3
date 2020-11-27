@@ -5,29 +5,48 @@ import time
 import sys
 
 
+
 def ventana():
     
     #codigo para convertir los strings en entradas
     global pot0
     global pot1
     global pot2
-  
     
-    x = 0
-    y = 0
-    xanterior = x
-    yanterior = y
+    pot0 = "0"
+    pot1 = "0"
+    pot2 = "0"
     
     raiz = Tk()
     raiz.title("Cara animada")
     raiz.geometry("900x900")
 
     raiz.config(bg ="grey")
-    canv = Canvas(raiz, width = 800, height = 800, bg = "white")
-    canv.pack(fill = "both", expand="True")
+    
+    var = StringVar()
+    var.set('hello')
+    
+    var2 = StringVar()
+    var2.set('hello')
+
+    var3 = StringVar()
+    var3.set('hello')
+
+
+    label1 = Label(raiz, textvariable = var)
+    label1.pack()
+    label2 = Label(raiz, textvariable = var2)
+    label2.pack()
+    label3 = Label(raiz, textvariable = var3)
+    label3.pack()
+    
+
+    
     
     while True:
-    
+        var.set("Valor de potenciometro que controla la boca  "+pot0)
+        var2.set("Valor de potenciometro que controla la ceja 1  "+pot1)
+        var3.set("Valor de potenciometro que controla la ceja 2  "+pot2)
         time.sleep(0.4)
         raiz.update_idletasks()
         raiz.update()
@@ -42,10 +61,16 @@ def Comunicacion():
         pic.flushInput()
             
         time.sleep(0.4)
-        pic.readline()
-        read = pic.readline().decode('ascii')
-        valoresPOT = read.split(",")
-
+        try:
+            pic.readline()
+            read = pic.readline().decode('ascii')
+            valoresPOT = read.split(",")
+        except:
+            print("hola")
+        global pot0
+        global pot1
+        global pot2
+        
         pot0 = valoresPOT[0]
         pot1 = valoresPOT[1]
         pot2 = valoresPOT[2]
