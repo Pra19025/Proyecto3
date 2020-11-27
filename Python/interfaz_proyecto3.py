@@ -8,14 +8,10 @@ import sys
 def ventana():
     
     #codigo para convertir los strings en entradas
-    global potx
-    global poty
-    potx = 120
-    poty = 120
-    global x
-    global y
-    global xanterior
-    global yanterior
+    global pot0
+    global pot1
+    global pot2
+  
     
     x = 0
     y = 0

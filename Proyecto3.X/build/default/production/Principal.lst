@@ -1,4 +1,4 @@
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE  1
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[207]: Found label after column 1. (AJUSTE_PWM)
 Warning[207]: Found label after column 1. (TIMING1)
 0008                  00031  TIMING1 RES 1 
 Warning[207]: Found label after column 1. (TIMING2)
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE  2
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ Warning[207]: Found label after column 1. (DEL)
 000A   2???           00066     GOTO    INT_ADC
 000B   110B           00067     BCF INTCON,T0IF
                       00068     
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE  3
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ Warning[207]: Found label after column 1. (ONDA2)
                       00116     
 0030   3001           00117     MOVLW   .1
 0031   02??           00118     SUBWF   CONTROL_ADC, W
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE  4
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ Warning[207]: Found label after column 1. (FIN)
                       00165    
                       00166     ;----- SE DETERMINA QUE DATO HAY QUE ENVIAR -------------------------------
                       00167     
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE  5
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 007B   300A           00218     MOVLW   .10
 007C   02??           00219     SUBWF CONTROL_TX, W
 007D   1903           00220     BTFSC   STATUS, Z
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE  6
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -352,7 +352,7 @@ Warning[207]: Found label after column 1. (OCTAVO)
 0096   2???           00263     GOTO ENVIAR
                       00264     
 Warning[207]: Found label after column 1. (NOVENO)
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE  7
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -411,7 +411,7 @@ Message[305]: Using default destination of 1 (file).
 000F   08??           00309     MOVF    AJUSTE_PWM,W
 0010   00??           00310     MOVWF TIMING1
                       00311     
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE  8
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE  8
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -424,19 +424,19 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0012   00??           00315     MOVWF   VALOR_BIN
 0013   30??           00316     MOVLW   VALOR_CENTENAS_BOCA
 0014   0084           00317     MOVWF   FSR
-0015   2???           00318    CALL CONVERTIR_BIN_TO_BCD 
+0015   2???           00318    CALL CONVERTIR
                       00319    
 0016   08??           00320     MOVF    CANAL1,W
 0017   00??           00321     MOVWF   VALOR_BIN
 0018   30??           00322     MOVLW   VALOR_CENTENAS_CEJA1
 0019   0084           00323     MOVWF   FSR
-001A   2???           00324    CALL CONVERTIR_BIN_TO_BCD 
+001A   2???           00324    CALL CONVERTIR
                       00325    
 001B   08??           00326     MOVF    CANAL2,W
 001C   00??           00327     MOVWF   VALOR_BIN
 001D   30??           00328     MOVLW   VALOR_CENTENAS_CEJA2
 001E   0084           00329     MOVWF   FSR
-001F   2???           00330    CALL CONVERTIR_BIN_TO_BCD 
+001F   2???           00330    CALL CONVERTIR
                       00331    
                       00332    
 0020   2???           00333    CALL SEND_DATA
@@ -444,7 +444,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0021   2???           00335     GOTO LOOP    
                       00336     
                       00337     
-0022                  00338 CONVERTIR_BIN_TO_BCD:
+0022                  00338 CONVERTIR:
 0022   01??           00339     CLRF    VALOR_CENTENAS
 0023   01??           00340     CLRF    VALOR_DECENAS
 0024   01??           00341     CLRF    VALOR_UNIDADES
@@ -470,7 +470,7 @@ Warning[207]: Found label after column 1. (DECENAS)
 0030   0A??           00359     INCF    VALOR_DECENAS,F
 0031   00??           00360     MOVWF   VALOR_BIN
 0032   2???           00361     GOTO DECENAS
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE  9
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE  9
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -529,7 +529,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0053   0189           00407     CLRF    ANSELH 
                       00408     
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 10
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 10
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -588,7 +588,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 006F   1618           00443     BSF RCSTA, CREN
                       00444 
                       00445  
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 11
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 11
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -647,7 +647,7 @@ Warning[207]: Found label after column 1. (DELAY)
 0095   00??           00495     MOVWF   DEL
 0096   0B??           00496     DECFSZ  DEL, F
 0097   2???           00497     GOTO    $-1
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 12
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 12
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -656,7 +656,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0098   0008           00498     RETURN
                       00499     
 20D4 3FFF             00500     END
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 13
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 13
 
 
 SYMBOL TABLE
@@ -715,7 +715,7 @@ BRG5                              00000005
 BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 14
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 14
 
 
 SYMBOL TABLE
@@ -774,7 +774,7 @@ CCPR1L                            00000015
 CCPR2                             0000001B
 CCPR2H                            0000001C
 CCPR2L                            0000001B
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 15
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 15
 
 
 SYMBOL TABLE
@@ -795,7 +795,7 @@ CONFIG_IO                         00000048
 CONTROL_ADC                       00000006
 CONTROL_ONDA                      0000000A
 CONTROL_TX                        0000000B
-CONVERTIR_BIN_TO_BCD              00000022
+CONVERTIR                         00000022
 CREN                              00000004
 CSRC                              00000007
 CUARTO                            0000008D
@@ -833,7 +833,7 @@ FERR                              00000002
 FIN                               00000048
 FINAL                             0000009B
 FSR                               00000004
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 16
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 16
 
 
 SYMBOL TABLE
@@ -892,7 +892,7 @@ NOT_BOR                           00000000
 NOT_DONE                          00000001
 NOT_PD                            00000003
 NOT_POR                           00000001
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 17
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 17
 
 
 SYMBOL TABLE
@@ -951,7 +951,7 @@ PS2                               00000002
 PSA                               00000003
 PSSAC0                            00000002
 PSSAC1                            00000003
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 18
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 18
 
 
 SYMBOL TABLE
@@ -1010,7 +1010,7 @@ RD4                               00000004
 RD5                               00000005
 RD6                               00000006
 RD7                               00000007
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 19
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 19
 
 
 SYMBOL TABLE
@@ -1069,7 +1069,7 @@ STATUS_TEMP                       00000001
 STRA                              00000000
 STRB                              00000001
 STRC                              00000002
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 20
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 20
 
 
 SYMBOL TABLE
@@ -1128,7 +1128,7 @@ TRISA5                            00000005
 TRISA6                            00000006
 TRISA7                            00000007
 TRISB                             00000086
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 21
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 21
 
 
 SYMBOL TABLE
@@ -1187,7 +1187,7 @@ ULPWUIF                           00000002
 UNIDADES                          00000033
 VALOR_BIN                         00000015
 VALOR_CENTENAS                    00000016
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 22
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 22
 
 
 SYMBOL TABLE
@@ -1246,7 +1246,7 @@ _BOREN_OFF                        00003CFF
 _BOREN_ON                         00003FFF
 _BOREN_SBODEN                     00003DFF
 _BOR_NSLEEP                       00003EFF
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 23
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 23
 
 
 SYMBOL TABLE
@@ -1305,7 +1305,7 @@ _WDT_ON                           00003FFF
 _WRT_1FOURTH                      00003BFF
 _WRT_256                          00003DFF
 _WRT_HALF                         000039FF
-MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:25:28         PAGE 24
+MPASM 5.77                     PRINCIPAL.ASM   11-27-2020  10:36:32         PAGE 24
 
 
 SYMBOL TABLE
