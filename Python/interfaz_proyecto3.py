@@ -29,6 +29,12 @@ def ventana():
     raiz.config(bg ="grey")
     canv = Canvas(raiz, width = 800, height = 800, bg = "white")
     canv.pack(fill = "both", expand="True")
+    
+    while True:
+    
+        time.sleep(0.4)
+        raiz.update_idletasks()
+        raiz.update()
 
 
 def Comunicacion():
@@ -42,14 +48,12 @@ def Comunicacion():
         time.sleep(0.4)
         pic.readline()
         read = pic.readline().decode('ascii')
-        print("lectura",read)
-        valoresxy = read.split(",")
+        valoresPOT = read.split(",")
 
-        global potx
-        global poty
-        potx = int(valoresxy[0])
-        poty = int(valoresxy[1])
-
+        pot0 = valoresPOT[0]
+        pot1 = valoresPOT[1]
+        pot2 = valoresPOT[2]
+                
         print(read)
     return
 
